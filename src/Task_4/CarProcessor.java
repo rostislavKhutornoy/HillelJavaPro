@@ -1,18 +1,49 @@
 package Task_4;
 
+import java.util.Objects;
+
 public class CarProcessor {
+    Car[] cars;
+
+    public CarProcessor() {
+        this.cars = new Car[] {};
+    }
+    public CarProcessor(Car[] cars) {
+        this.cars = cars;
+    }
+
     public void getByBrand(Car[] cars, String brand) {
         for (Car car : cars) {
-            if (brand == car.brand) {
+            if (Objects.equals(brand, car.brand)) {
                 print(car);
+            }
+        }
+    }
+
+    public void getByBrand(String brand) {
+        if (cars.length != 0) {
+            for (Car car : cars) {
+                if (Objects.equals(brand, car.brand)) {
+                    print(car);
+                }
             }
         }
     }
 
     public void getByOperating(Car[] cars, String model, int operation, int actualYear) {
         for (Car car : cars) {
-            if (model == car.model && (actualYear - car.year) > operation) {
+            if (Objects.equals(model, car.model) && (actualYear - car.year) > operation) {
                 print(car);
+            }
+        }
+    }
+
+    public void getByOperating(String model, int operation, int actualYear) {
+        if (cars.length != 0) {
+            for (Car car : cars) {
+                if (Objects.equals(model, car.model) && (actualYear - car.year) > operation) {
+                    print(car);
+                }
             }
         }
     }
@@ -21,6 +52,16 @@ public class CarProcessor {
         for (Car car : cars) {
             if (year == car.year && car.price > price) {
                 print(car);
+            }
+        }
+    }
+
+    public void getByPrice(int year, double price) {
+        if (cars.length != 0) {
+            for (Car car : cars) {
+                if (year == car.year && car.price > price) {
+                    print(car);
+                }
             }
         }
     }
