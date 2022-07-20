@@ -4,7 +4,7 @@ package Task_3;
     Найти числа, состоящее только из различных цифр. (строки не использовать) */
 
 public class UniqueNum {
-    private static int numLength(int num) {
+    private int numLength(int num) {
         int length = 0;
         while (num != 0) {
             num = (int) num / 10;
@@ -13,7 +13,7 @@ public class UniqueNum {
         return length;
     }
 
-    private static boolean isUnique(int num) {
+    public boolean isUnique(int num) {
         int[] nums = new int[numLength(num)];
         for (int i = numLength(num) - 1; i >= 0; i--) {
             nums[i] = num % 10;
@@ -29,7 +29,7 @@ public class UniqueNum {
         return true;
     }
 
-    public static void findUnique(int[] array) {
+    public void findUnique(int[] array) {
         System.out.print("Numbers made up of unique digits in array: ");
         for (int value : array) {
             if (isUnique(value)) {
@@ -39,8 +39,9 @@ public class UniqueNum {
     }
 
     public static void main(String[] args) {
+        UniqueNum uniqueNum = new UniqueNum();
         int[] array = { 123, 1233, 3546, 252523, 65453, 4302 };
-        findUnique(array);
+        uniqueNum.findUnique(array);
     }
 
 }
