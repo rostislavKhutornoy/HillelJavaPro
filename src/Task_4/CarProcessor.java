@@ -22,11 +22,7 @@ public class CarProcessor {
 
     public void getByBrand(String brand) {
         if (cars.length != 0) {
-            for (Car car : cars) {
-                if (Objects.equals(brand, car.brand)) {
-                    print(car);
-                }
-            }
+            getByBrand(cars, brand);
         }
     }
 
@@ -40,11 +36,7 @@ public class CarProcessor {
 
     public void getByOperating(String model, int operation, int actualYear) {
         if (cars.length != 0) {
-            for (Car car : cars) {
-                if (Objects.equals(model, car.model) && (actualYear - car.year) > operation) {
-                    print(car);
-                }
-            }
+            getByOperating(cars, model, operation, actualYear);
         }
     }
 
@@ -58,11 +50,7 @@ public class CarProcessor {
 
     public void getByPrice(int year, double price) {
         if (cars.length != 0) {
-            for (Car car : cars) {
-                if (year == car.year && car.price > price) {
-                    print(car);
-                }
-            }
+            getByPrice(cars, year, price);
         }
     }
 
