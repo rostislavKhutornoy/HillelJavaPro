@@ -18,40 +18,40 @@ public class TriangleParameters {
     }
 
     public double findMinArea() {
-        double minArea = triangles[0].findArea();
+        double minArea = triangles[0].area;
         for (Triangle triangle : triangles) {
-            if (triangle.findArea() < minArea) {
-                minArea = triangle.findArea();
+            if (triangle.area < minArea) {
+                minArea = triangle.area;
             }
         }
         return minArea;
     }
 
     public double findMaxArea() {
-        double maxArea = triangles[0].findArea();
+        double maxArea = triangles[0].area;
         for (Triangle triangle : triangles) {
-            if (triangle.findArea() > maxArea) {
-                maxArea = triangle.findArea();
+            if (triangle.area > maxArea) {
+                maxArea = triangle.area;
             }
         }
         return maxArea;
     }
 
     public double findMinPerimeter() {
-        double minPerimeter = triangles[0].findPerimeter();
+        double minPerimeter = triangles[0].perimeter;
         for (Triangle triangle : triangles) {
-            if (triangle.findPerimeter() < minPerimeter) {
-                minPerimeter = triangle.findPerimeter();
+            if (triangle.perimeter < minPerimeter) {
+                minPerimeter = triangle.perimeter;
             }
         }
         return minPerimeter;
     }
 
     public double findMaxPerimeter() {
-        double maxPerimeter = triangles[0].findPerimeter();
+        double maxPerimeter = triangles[0].perimeter;
         for (Triangle triangle : triangles) {
-            if (triangle.findPerimeter() > maxPerimeter) {
-                maxPerimeter = triangle.findPerimeter();
+            if (triangle.perimeter > maxPerimeter) {
+                maxPerimeter = triangle.perimeter;
             }
         }
         return maxPerimeter;

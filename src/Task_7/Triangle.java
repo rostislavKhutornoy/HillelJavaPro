@@ -7,6 +7,8 @@ public class Triangle {
     private final double ab;
     private final double bc;
     private final double ac;
+    public final double perimeter;
+    public final double area;
 
     public Triangle(Point a, Point b, Point c) {
         this.a = a;
@@ -15,6 +17,8 @@ public class Triangle {
         this.ab = findSideLength(this.a, this.b);
         this.bc = findSideLength(this.b, this.c);
         this.ac = findSideLength(this.a, this.c);
+        this.perimeter = findPerimeter();
+        this.area = findArea();
     }
 
     public double findSideLength(Point first, Point second) {
