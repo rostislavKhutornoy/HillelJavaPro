@@ -34,11 +34,19 @@ public class TaxiPark {
     }
 
     public Vehicle[] sortByFuelConsumptionAscending() {
-        Vehicle[] newArray = sortByFuelConsumptionDescending();
-        for (int i = 0; i < newArray.length / 2; i++) {
-            Vehicle temp = newArray[i];
-            newArray[i] = newArray[newArray.length - 1 - i];
-            newArray[newArray.length - 1 - i] = temp;
+        Vehicle[] newArray = new Vehicle[vehicles.length];
+        copyArray(newArray, vehicles);
+        boolean isSorted = false;
+        while (!isSorted) {
+            isSorted = true;
+            for (int i = 0; i < newArray.length - 1; i++) {
+                if (newArray[i].fuelConsumption > newArray[i + 1].fuelConsumption) {
+                    isSorted = false;
+                    Vehicle temp = newArray[i];
+                    newArray[i] = newArray[i + 1];
+                    newArray[i + 1] = temp;
+                }
+            }
         }
         return newArray;
     }
