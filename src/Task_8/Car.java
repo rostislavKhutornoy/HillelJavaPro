@@ -5,7 +5,7 @@ import java.util.Objects;
 public class Car extends Vehicle{
     String type;
 
-    static class Type {
+    public static class Type {
         public static final String PASSENGER = "Passenger";
         public static final String SPORTS = "Sports";
         public static final String OFF_ROAD = "Off-road";
