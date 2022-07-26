@@ -17,7 +17,8 @@ public class Main {
                 new Triangle(new Point(0, 0), new Point(6, 0), new Point(3, 6)),
                 new Triangle(new Point(0, 0), new Point(8, 0), new Point(4, 8)),
                 new Triangle(new Point(0, 0), new Point(5, 0), new Point(3, 5)),
-                new Triangle(new Point(0, 0), new Point(8, 0), new Point(6, 8))
+                new Triangle(new Point(0, 0), new Point(8, 0), new Point(6, 8)),
+                new Triangle(new Point(0, 0), new Point(0, 3), new Point(3, 0))
         };
         TriangleParameters triangleParameters = new TriangleParameters(triangles);
         triangleParameters.printEachTypeInfo();

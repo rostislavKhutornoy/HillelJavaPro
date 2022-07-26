@@ -10,7 +10,10 @@ public class TriangleParameters {
     public int amountTrianglesByType(String type) {
         int amount = 0;
         for (Triangle triangle : triangles) {
-            if (triangle.typeTriangle().equals(type)) {
+            if (triangle.typeEquinox().equals(type) ||
+                    triangle.typeEquilateral().equals(type) ||
+                    triangle.typeRectangular().equals(type) ||
+                    triangle.typeArbitrary().equals(type)) {
                 amount++;
             }
         }
@@ -63,7 +66,10 @@ public class TriangleParameters {
         if (typeTriangles.length != 0) {
             for (int i = 0; i < typeTriangles.length; ) {
                 for (Triangle triangle : triangles) {
-                    if (triangle.typeTriangle().equals(type)) {
+                    if (triangle.typeEquinox().equals(type) ||
+                            triangle.typeEquilateral().equals(type) ||
+                            triangle.typeRectangular().equals(type) ||
+                            triangle.typeArbitrary().equals(type)) {
                         typeTriangles[i] = triangle;
                         i++;
                     }

@@ -28,18 +28,36 @@ public class Triangle {
         return Math.sqrt(Math.pow(third.x, 2) + Math.pow(third.y, 2));
     }
 
-    public String typeTriangle() {
+    public String typeEquilateral() {
         if (ab == bc && ab == ac) {
             return "Equilateral"; //Равностроронний
-        } else if ((Math.round(ab * ab) == bc * bc + ac * ac) ||
-                   (Math.round(bc * bc) == ab * ab + ac * ac) ||
-                   (Math.round(ac * ac) == ab * ab + bc * bc)) {
-            return "Rectangular"; //Прямоугольный
-        } else if (ab == bc || ab == ac || bc == ac) {
-            return "Equinox"; //Равнобедренный
-        } else {
-            return "Arbitrary"; //Произвольный
         }
+        return "Not equilateral";
+    }
+
+    public String typeRectangular() {
+        if ((Math.round(ab * ab) == bc * bc + ac * ac) ||
+                (Math.round(bc * bc) == ab * ab + ac * ac) ||
+                (Math.round(ac * ac) == ab * ab + bc * bc)) {
+            return "Rectangular"; //Прямоугольный
+        }
+        return "Not rectangular";
+    }
+
+    public String typeEquinox() {
+        if (ab == bc || ab == ac || bc == ac) {
+            return "Equinox"; //Равнобедренный
+        }
+        return "Not equinox";
+    }
+
+    public String typeArbitrary() {
+        if (typeEquilateral().equals("Not equilateral") &&
+                typeRectangular().equals("Not rectangular") &&
+                typeEquinox().equals("Not equinox")) {
+            return "Arbitrary";
+        }
+        return "Not arbitrary";
     }
 
     public double findPerimeter() {
