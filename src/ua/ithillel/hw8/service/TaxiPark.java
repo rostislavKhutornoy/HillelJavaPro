@@ -1,13 +1,11 @@
 package ua.ithillel.hw8.service;
 
-import ua.ithillel.hw8.domain.Vehicle;
-
 public interface TaxiPark {
     double fleetCost();
 
-    Vehicle[] sortByFuelConsumptionDescending();
+    Object[] sortByFuelConsumptionDescending();
 
-    Vehicle[] sortByFuelConsumptionAscending();
+    Object[] sortByFuelConsumptionAscending();
 
-    Vehicle[] findBySpeed(double minSpeed, double maxSpeed);
+    Object[] findBySpeed(double minSpeed, double maxSpeed);
 }
