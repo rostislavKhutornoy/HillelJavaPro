@@ -103,10 +103,30 @@ public class SingleLinkedList<T> {
             if (firstIndex >= 0 && firstIndex < length()) {
                 if (secondIndex >= 0 && secondIndex < length()) {
                     if (firstIndex != secondIndex) {
-                        T firstData = getByIndex(firstIndex).getData();
-                        T secondData = getByIndex(secondIndex).getData();
-                        getByIndex(firstIndex).setData(secondData);
-                        getByIndex(secondIndex).setData(firstData);
+                        Node<T> node1 = getByIndex(firstIndex);
+                        Node<T> node2 = getByIndex(secondIndex);
+                        if (node1 == null || node2 == null) return;
+                        Node<T> node1Prev = getByIndex(firstIndex - 1);
+                        Node<T> node2Prev = getByIndex(secondIndex - 1);
+                        if (node1Prev.getNext() == null || node2Prev.getNext() == null) return;
+                        if (node2Prev.equals(node1)) {
+                            node1.setNext(node2.getNext());
+                            node2.setNext(node1);
+                            node1Prev.setNext(node2);
+                        } else if (node1Prev.equals(node2)) {
+                            node2.setNext(node1.getNext());
+                            node1.setNext(node2);
+                            node2Prev.setNext(node1);
+                        } else {
+                            Node<T> tmp = node1.getNext();
+                            node1.setNext(node2.getNext());
+                            node2.setNext(tmp);
+                            node1Prev.setNext(node2);
+                            node2Prev.setNext(node1);
+                        }
+                        if (firstIndex == 0) {
+                            deleteFirst();
+                        }
                     }
                 } else {
                     throw new IndexOutOfBoundsException(secondIndex);

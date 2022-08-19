@@ -31,7 +31,7 @@ public class Main {
         System.out.println(list);
 
         // Взаимообмен двух узлов списка (по двум идексам)
-        list.swap(0, 4);
+        list.swap(1, 4);
 
         // Количество элементов в списке
         System.out.println(emptyList.length());
