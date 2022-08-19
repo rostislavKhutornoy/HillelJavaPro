@@ -5,13 +5,15 @@ import ua.ithillel.hw12.unit.Node;
 
 public class SingleLinkedList<T> {
     private Node<T> head;
-
+    private int length;
     public SingleLinkedList() {
         head = null;
+        length = 0;
     }
 
     public SingleLinkedList(T value) {
         if (value != null) {
+            length = 1;
             head = new Node<>(value, null);
         } else {
             head = null;
@@ -19,6 +21,7 @@ public class SingleLinkedList<T> {
     }
 
     public SingleLinkedList(T[] array) {
+        length = 0;
         for (T t : array) {
             insertLast(t);
         }
@@ -26,6 +29,7 @@ public class SingleLinkedList<T> {
 
     public void insertFirst(T data) {
         head = new Node<>(data, head);
+        length++;
     }
 
     public void insertLast(T data) {
@@ -35,6 +39,7 @@ public class SingleLinkedList<T> {
                 current = current.getNext();
             }
             current.setNext(new Node<>(data, null));
+            length++;
         } else {
             insertFirst(data);
         }
@@ -43,6 +48,7 @@ public class SingleLinkedList<T> {
     public void deleteFirst() throws EmptySingleLinkedListException {
         if (!isEmpty()) {
             head = head.getNext();
+            length--;
         } else {
             throw new EmptySingleLinkedListException();
         }
@@ -58,6 +64,7 @@ public class SingleLinkedList<T> {
             }
             current = temp;
             current.setNext(null);
+            length--;
         } else {
             throw new EmptySingleLinkedListException();
         }
@@ -71,6 +78,7 @@ public class SingleLinkedList<T> {
                 } else {
                     Node<T> temp = getByIndex(index);
                     getByIndex(index - 1).setNext(new Node<>(data, temp));
+                    length++;
                 }
             } else {
                 throw new IndexOutOfBoundsException(index);
@@ -89,6 +97,7 @@ public class SingleLinkedList<T> {
                     deleteLast();
                 } else {
                     getByIndex(index - 1).setNext(getByIndex(index - 1).getNext().getNext());
+                    length--;
                 }
             } else {
                 throw new IndexOutOfBoundsException(index);
@@ -137,17 +146,7 @@ public class SingleLinkedList<T> {
     }
 
     public int length() {
-        if (isEmpty()) {
-            return 0;
-        } else {
-            int length = 0;
-            Node<T> current = head;
-            while (current != null) {
-                length++;
-                current = current.getNext();
-            }
-            return length;
-        }
+        return length;
     }
 
     public boolean isEmpty() {
