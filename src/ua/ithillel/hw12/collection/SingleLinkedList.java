@@ -124,9 +124,6 @@ public class SingleLinkedList<T> {
                             node1Prev.setNext(node2);
                             node2Prev.setNext(node1);
                         }
-                        if (firstIndex == 0) {
-                            deleteFirst();
-                        }
                     }
                 } else {
                     throw new IndexOutOfBoundsException(secondIndex);
