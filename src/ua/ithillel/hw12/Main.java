@@ -34,8 +34,8 @@ public class Main {
         list.swap(1, 4);
 
         // Количество элементов в списке
-        System.out.println(emptyList.length());
-        System.out.println(list.length());
+        System.out.println(emptyList.size());
+        System.out.println(list.size());
 
         // Проверить список на пустоту
         System.out.println(emptyList.isEmpty());
