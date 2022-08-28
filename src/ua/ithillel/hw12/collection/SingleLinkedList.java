@@ -3,7 +3,9 @@ package ua.ithillel.hw12.collection;
 import ua.ithillel.hw12.exception.EmptySingleLinkedListException;
 import ua.ithillel.hw12.unit.Node;
 
-public class SingleLinkedList<T> {
+import java.util.Iterator;
+
+public class SingleLinkedList<T> implements Iterable<T> {
     private Node<T> head;
     private int size;
     public SingleLinkedList() {
@@ -160,5 +162,14 @@ public class SingleLinkedList<T> {
         }
         str += " ]";
         return str;
+    }
+
+    public Node<T> getHead() {
+        return head;
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new SingleLinkedListIterator<>(this);
     }
 }
