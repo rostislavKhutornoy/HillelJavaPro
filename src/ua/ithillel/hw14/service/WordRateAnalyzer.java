@@ -20,6 +20,12 @@ public class WordRateAnalyzer {
         String content = IOUtil.readFile(filename);
         String[] words = new String[] {};
         if (content != null) {
+            content = content.replace("...", " ")
+                    .replace(".", " ")
+                    .replace("-", " ")
+                    .replace(":", " ")
+                    .replace(",", " ")
+                    .replace("  ", " ");
             words = content.split(" ");
         }
         for (String word : words) {
