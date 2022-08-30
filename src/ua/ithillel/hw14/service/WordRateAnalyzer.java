@@ -46,6 +46,10 @@ public class WordRateAnalyzer {
         }
     }
 
+    public HashMap<String, Integer> getResult() {
+        return data;
+    }
+
     @Override
     public String toString() {
         return data.toString();
